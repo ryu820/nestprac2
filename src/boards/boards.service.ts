@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Board, BoardStatus } from './board.model';
 import { v1 as uuid } from 'uuid';
+import { CeateBoardDto } from './dto/create-board.dto';
 
 @Injectable()
 export class BoardsService {
@@ -11,8 +12,9 @@ export class BoardsService {
     return this.boards;
   }
 
-  createBoard(title: string, description: string) {
+  createBoard(createBoard: CeateBoardDto) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { title, description } = createBoard;
     const board: Board = {
       id: uuid(),
       title,
