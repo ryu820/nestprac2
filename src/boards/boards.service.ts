@@ -40,4 +40,10 @@ export class BoardsService {
     const found = this.getBoardByID(id);
     this.boards = this.boards.filter((board) => board.id !== found.id);
   }
+
+  updateBoardStatus(id: string, status: BoardStatus): Board {
+    const board = this.getBoardByID(id);
+    board.status = status;
+    return board;
+  }
 }
